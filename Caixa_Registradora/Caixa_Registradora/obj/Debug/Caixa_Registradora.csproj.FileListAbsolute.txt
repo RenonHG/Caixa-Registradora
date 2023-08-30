@@ -1,0 +1,7 @@
+C:\Users\renon.hgusson\source\repos\Caixa-Registradora\Caixa_Registradora\Caixa_Registradora\bin\Debug\Caixa_Registradora.exe.config
+C:\Users\renon.hgusson\source\repos\Caixa-Registradora\Caixa_Registradora\Caixa_Registradora\bin\Debug\Caixa_Registradora.exe
+C:\Users\renon.hgusson\source\repos\Caixa-Registradora\Caixa_Registradora\Caixa_Registradora\bin\Debug\Caixa_Registradora.pdb
+C:\Users\renon.hgusson\source\repos\Caixa-Registradora\Caixa_Registradora\Caixa_Registradora\obj\Debug\Caixa_Registradora.csproj.AssemblyReference.cache
+C:\Users\renon.hgusson\source\repos\Caixa-Registradora\Caixa_Registradora\Caixa_Registradora\obj\Debug\Caixa_Registradora.csproj.CoreCompileInputs.cache
+C:\Users\renon.hgusson\source\repos\Caixa-Registradora\Caixa_Registradora\Caixa_Registradora\obj\Debug\Caixa_Registradora.exe
+C:\Users\renon.hgusson\source\repos\Caixa-Registradora\Caixa_Registradora\Caixa_Registradora\obj\Debug\Caixa_Registradora.pdb
