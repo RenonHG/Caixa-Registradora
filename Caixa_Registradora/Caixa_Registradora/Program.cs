@@ -76,7 +76,7 @@ namespace Caixa_Registradora
 
                     Console.Write("\nInsira o valor de " + PRODUTO3 + ": R$");
                     VALOR3 = float.Parse(Console.ReadLine());
-
+                    Console.Clear();
                 }
 
                 else if (menu == 2)
@@ -179,7 +179,7 @@ namespace Caixa_Registradora
 
                             }
                         }
-                        
+
                         else if (cardapio == 3)
                         {
                             int desejada3;
@@ -224,6 +224,7 @@ namespace Caixa_Registradora
                             cardapio = int.Parse(Console.ReadLine());
 
                         }
+
                         break;
 
                         //Console.ForegroundColor = ConsoleColor.Red;
@@ -266,12 +267,14 @@ namespace Caixa_Registradora
 
                 Console.WriteLine("\nDeseja Voltar para o Menu? (s/n) ");
                 loop = Console.ReadLine();
-
+                Console.Clear();
 
             }
+
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.Write("\nAperte qualquer tecla para encerrar o programa!");
             Console.ReadKey();
+        
         }
     }
 }
