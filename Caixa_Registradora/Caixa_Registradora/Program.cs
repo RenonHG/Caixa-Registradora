@@ -11,10 +11,10 @@ namespace Caixa_Registradora
         static void Main(string[] args)
         {
             int menu;
-            float VALOR1 = 0, VALOR2 = 0, VALOR3 = 0;
-            string PRODUTO1 = "", PRODUTO2 = "", PRODUTO3 = "", frase;
+            float VALOR1 = 10, VALOR2 = 20, VALOR3 = 30;
+            string PRODUTO1 = "A", PRODUTO2 = "B", PRODUTO3 = "C", frase;
             string loop = "s";
-            int QUANTIDADE1 = 0, QUANTIDADE2 = 0, QUANTIDADE3 = 0;
+            int QUANTIDADE1 = 10, QUANTIDADE2 = 20, QUANTIDADE3 = 30;
 
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Deseja seguir para o menu? (s/n) ");
@@ -82,6 +82,7 @@ namespace Caixa_Registradora
                 else if (menu == 2)
                 {
                     int cardapio;
+                    float recebido, troco;
                     Console.Clear();
                     Console.ForegroundColor = ConsoleColor.DarkMagenta;
 
@@ -99,13 +100,13 @@ namespace Caixa_Registradora
 
                     cardapio = int.Parse(Console.ReadLine());
 
-                    while (cardapio >=1 || cardapio <= 3)
+                    while (cardapio >= 1 || cardapio <= 3)
                     {
                         if (cardapio == 1)
                         {
                             int desejada1;
 
-                            Console.WriteLine("\nVocê escolheu: " + PRODUTO1 + " Que custa R$" + VALOR1 + " por unidade");
+                            Console.WriteLine("\nVocê escolheu: " + PRODUTO1 + " Que custa R$" + VALOR1 + " por unidade, quantidade no estoque: " + QUANTIDADE1);
                             Console.WriteLine("\nQuantas unidades você deseja? ");
                             desejada1 = int.Parse(Console.ReadLine());
 
@@ -116,11 +117,27 @@ namespace Caixa_Registradora
                                 total1 = desejada1 * VALOR1;
 
                                 Console.WriteLine("\nFicou um valor total de: R$" + total1);
-                            }
 
+                                Console.Write("\nValor recebido: R$");
+                                recebido = float.Parse(Console.ReadLine());
+
+                                if (recebido < total1)
+                                {
+                                    Console.WriteLine("\nVaza pobre!");
+                                }
+                                else
+                                {
+                                    troco = recebido - total1;
+                                    Console.WriteLine("\nTroco: R$" + troco);
+                                    QUANTIDADE1 -= desejada1;
+
+                                    Console.Write("Venda Realizada!");
+                                }
+                            }
                             else
                             {
-                                Console.WriteLine("\nInfelizmente não há essa quantidade no estoque, temos no estoque apenas: " + QUANTIDADE1 + " unidades");
+                                Console.WriteLine("Quantidade indisponível!!!");
+
                             }
                         }
 
@@ -128,7 +145,7 @@ namespace Caixa_Registradora
                         {
                             int desejada2;
 
-                            Console.WriteLine("\nVocê escolheu: " + PRODUTO2 + " Que custa R$" + VALOR2 + " por unidade");
+                            Console.WriteLine("\nVocê escolheu: " + PRODUTO2 + " Que custa R$" + VALOR2 + " por unidade, quantidade no estoque: " + QUANTIDADE2);
                             Console.WriteLine("\nQuantas unidades você deseja? ");
                             desejada2 = int.Parse(Console.ReadLine());
 
@@ -139,18 +156,35 @@ namespace Caixa_Registradora
                                 total2 = desejada2 * VALOR2;
 
                                 Console.WriteLine("\nFicou um valor total de: R$" + total2);
-                            }
 
+                                Console.Write("\nValor recebido: R$");
+                                recebido = float.Parse(Console.ReadLine());
+
+                                if (recebido < total2)
+                                {
+                                    Console.WriteLine("\nVaza pobre!");
+                                }
+                                else
+                                {
+                                    troco = recebido - total2;
+                                    Console.WriteLine("\nTroco: R$" + troco);
+                                    QUANTIDADE2 -= desejada2;
+
+                                    Console.Write("Venda Realizada!");
+                                }
+                            }
                             else
                             {
-                                Console.WriteLine("\nInfelizmente não há essa quantidade no estoque, temos no estoque apenas: " + QUANTIDADE2 + " unidades");
+                                Console.WriteLine("Quantidade indisponível!!!");
+
                             }
                         }
+                        
                         else if (cardapio == 3)
                         {
                             int desejada3;
 
-                            Console.WriteLine("\nVocê escolheu: " + PRODUTO3 + " Que custa R$" + VALOR3 + " por unidade");
+                            Console.WriteLine("\nVocê escolheu: " + PRODUTO3 + " Que custa R$" + VALOR3 + " por unidade, quantidade no estoque: " + QUANTIDADE2);
                             Console.WriteLine("\nQuantas unidades você deseja? ");
                             desejada3 = int.Parse(Console.ReadLine());
 
@@ -159,13 +193,28 @@ namespace Caixa_Registradora
                                 float total3;
 
                                 total3 = desejada3 * VALOR3;
-
                                 Console.WriteLine("\nFicou um valor total de: R$" + total3);
-                            }
 
+                                Console.Write("\n Valor recebido: R$");
+                                recebido = float.Parse(Console.ReadLine());
+
+                                if (recebido < total3)
+                                {
+                                    Console.WriteLine("\nVaza pobre!");
+                                }
+                                else
+                                {
+                                    troco = recebido - total3;
+                                    Console.WriteLine("\nTroco: R$" + troco);
+                                    QUANTIDADE3 -= desejada3;
+
+                                    Console.Write("Venda Realizada!");
+                                }
+                            }
                             else
                             {
-                                Console.WriteLine("\nInfelizmente não há essa quantidade no estoque, temos no estoque apenas: " + QUANTIDADE3 + " unidades");
+                                Console.WriteLine("Quantidade indisponível!!!");
+
                             }
                         }
                         else
@@ -173,54 +222,56 @@ namespace Caixa_Registradora
                             Console.ForegroundColor = ConsoleColor.Red;
                             Console.WriteLine("\nOpção indisponível, escolha outra opção!");
                             cardapio = int.Parse(Console.ReadLine());
+
                         }
-                        
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("\nOpção indisponível, escolha outra opção!");
-                        cardapio = int.Parse(Console.ReadLine());
+                        break;
+
+                        //Console.ForegroundColor = ConsoleColor.Red;
+                        //Console.WriteLine("\nDeseja mais alguma coisa do cardápio?");
+                        //cardapio = int.Parse(Console.ReadLine());
                     }
-
-                    }
-
-                else if (menu == 3)
-                    {
-                        Console.Clear();
-                        Console.ForegroundColor = ConsoleColor.DarkMagenta;
-                        Console.WriteLine("\n██████  ███████ ██       █████  ████████  ██████  ██████  ██  ██████  \r\n██   ██ ██      ██      ██   ██    ██    ██    ██ ██   ██ ██ ██    ██ \r\n██████  █████   ██      ███████    ██    ██    ██ ██████  ██ ██    ██ \r\n██   ██ ██      ██      ██   ██    ██    ██    ██ ██   ██ ██ ██    ██ \r\n██   ██ ███████ ███████ ██   ██    ██     ██████  ██   ██ ██  ██████  \r\n                                                                      ");
-
-                        Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.WriteLine("\n- Produto 1: " + PRODUTO1 + "\n- Estoque: " + QUANTIDADE1 + " \n- Valor R$" + VALOR1);
-
-                        Console.ForegroundColor = ConsoleColor.DarkYellow;
-                        Console.WriteLine("\n- Produto 2: " + PRODUTO2 + "\n- Estoque: " + QUANTIDADE2 + " \n- Valor R$" + VALOR2);
-
-                        Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.WriteLine("\n- Produto 3: " + PRODUTO3 + "\n- Estoque: " + QUANTIDADE3 + " \n- Valor R$" + VALOR3);
-
-                    }
-
-                    else if (menu == 4)
-                    {
-                        Console.Write("Digite uma frase: ");
-                        frase = Console.ReadLine();
-
-                        Console.WriteLine(frase.ToUpper());
-                    }
-
-                    else
-                    {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("Escolha uma opção válida!");
-                    }
-
-                    Console.WriteLine("\nDeseja Voltar para o Menu? (s/n) ");
-                    loop = Console.ReadLine();
-
 
                 }
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.Write("\nAperte qualquer tecla para encerrar o programa!");
-                Console.ReadKey();
+
+                else if (menu == 3)
+                {
+                    Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                    Console.WriteLine("\n██████  ███████ ██       █████  ████████  ██████  ██████  ██  ██████  \r\n██   ██ ██      ██      ██   ██    ██    ██    ██ ██   ██ ██ ██    ██ \r\n██████  █████   ██      ███████    ██    ██    ██ ██████  ██ ██    ██ \r\n██   ██ ██      ██      ██   ██    ██    ██    ██ ██   ██ ██ ██    ██ \r\n██   ██ ███████ ███████ ██   ██    ██     ██████  ██   ██ ██  ██████  \r\n                                                                      ");
+
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("\n- Produto 1: " + PRODUTO1 + "\n- Estoque: " + QUANTIDADE1 + " \n- Valor R$" + VALOR1);
+
+                    Console.ForegroundColor = ConsoleColor.DarkYellow;
+                    Console.WriteLine("\n- Produto 2: " + PRODUTO2 + "\n- Estoque: " + QUANTIDADE2 + " \n- Valor R$" + VALOR2);
+
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine("\n- Produto 3: " + PRODUTO3 + "\n- Estoque: " + QUANTIDADE3 + " \n- Valor R$" + VALOR3);
+
+                }
+
+                else if (menu == 4)
+                {
+                    Console.Write("Digite uma frase: ");
+                    frase = Console.ReadLine();
+
+                    Console.WriteLine(frase.ToUpper());
+                }
+
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Escolha uma opção válida!");
+                }
+
+                Console.WriteLine("\nDeseja Voltar para o Menu? (s/n) ");
+                loop = Console.ReadLine();
+
+
             }
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.Write("\nAperte qualquer tecla para encerrar o programa!");
+            Console.ReadKey();
         }
     }
+}
